@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Homework2.1</string>
+    <string name="open_activity">Open activity</string>
+    <string name="open_dialog">Open dialog</string>
+    <string name="title_question">Вопрос</string>
+    <string name="question">Вы Android разработчик?</string>
+    <string name="cool">Круто</string>
+    <string name="sadly">Грустно</string>
+    <string name="yes">Грустно</string>
+    <string name="no">Грустно</string>
+</resources>
