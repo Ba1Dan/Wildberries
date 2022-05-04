@@ -6,6 +6,6 @@
     <string name="question">Вы Android разработчик?</string>
     <string name="cool">Круто</string>
     <string name="sadly">Грустно</string>
-    <string name="yes">Грустно</string>
-    <string name="no">Грустно</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
 </resources>

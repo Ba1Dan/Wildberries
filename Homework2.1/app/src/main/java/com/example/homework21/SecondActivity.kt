@@ -28,7 +28,7 @@ class SecondActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         btnOpen.setOnClickListener {
-            showAlertDialog()
+            MessageFragmentDialog.newInstance().show(supportFragmentManager, null)
         }
     }
 
