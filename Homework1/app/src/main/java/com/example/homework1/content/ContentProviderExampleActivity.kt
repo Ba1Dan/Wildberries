@@ -10,7 +10,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.homework1.R
+import com.example.homework1.broadcast.BroadcastReceiverExampleActivity
 import com.example.homework1.content.DatabaseHelper.Companion.COLUMN_NAME
+import com.example.homework1.service.ServiceExampleActivity
 import com.google.android.material.button.MaterialButton
 
 /**
@@ -22,6 +24,8 @@ import com.google.android.material.button.MaterialButton
  * */
 class ContentProviderExampleActivity : AppCompatActivity() {
 
+    private lateinit var btnSave: MaterialButton
+    private lateinit var btnLoad: MaterialButton
     private lateinit var tvResult: TextView
     private lateinit var etValue: EditText
 
@@ -29,20 +33,10 @@ class ContentProviderExampleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_content_provider_example)
 
-        val btnSave: MaterialButton = findViewById(R.id.btn_save)
-        val btnLoad: MaterialButton = findViewById(R.id.btn_load)
-        etValue = findViewById(R.id.et_value)
-        tvResult = findViewById(R.id.tv_result)
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        btnSave.setOnClickListener {
-           saveData()
-        }
-
-        btnLoad.setOnClickListener {
-            loadDataFromContentProvider()
-        }
+        initView()
+        setClickListener()
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -50,10 +44,27 @@ class ContentProviderExampleActivity : AppCompatActivity() {
         return true
     }
 
+    private fun initView() {
+        btnSave = findViewById(R.id.btn_save)
+        btnLoad = findViewById(R.id.btn_load)
+        etValue = findViewById(R.id.et_value)
+        tvResult = findViewById(R.id.tv_result)
+    }
+
+    private fun setClickListener() {
+        btnSave.setOnClickListener {
+            saveData()
+        }
+
+        btnLoad.setOnClickListener {
+            loadDataFromContentProvider()
+        }
+    }
+
     private fun saveData() {
         val values = ContentValues()
         values.put(MyContentProvider.name, etValue.text.toString())
-
+        etValue.text.clear()
         val uri = contentResolver.insert(MyContentProvider.CONTENT_URI, values)
         if (uri != null) {
             Toast.makeText(this, getString(R.string.saved), Toast.LENGTH_SHORT).show()

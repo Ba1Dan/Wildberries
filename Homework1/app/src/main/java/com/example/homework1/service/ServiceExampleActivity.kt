@@ -15,29 +15,39 @@ import com.google.android.material.button.MaterialButton
  * */
 class ServiceExampleActivity : AppCompatActivity() {
 
+    private lateinit var btnStart: MaterialButton
+    private lateinit var btnStop: MaterialButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_service_example)
 
-        val btnStart: MaterialButton = findViewById(R.id.btn_start)
-        val btnStop: MaterialButton = findViewById(R.id.btn_stop)
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val intent = Intent(this, MusicService::class.java)
-
-        btnStart.setOnClickListener {
-            startService(intent)
-        }
-
-        btnStop.setOnClickListener {
-            stopService(intent)
-        }
+        initView()
+        setClickListener()
     }
 
     override fun onSupportNavigateUp(): Boolean {
         finish()
         return true
+    }
+
+    private fun initView() {
+        btnStart = findViewById(R.id.btn_start)
+        btnStop = findViewById(R.id.btn_stop)
+    }
+
+    private fun setClickListener() {
+        val intentService = Intent(this, MusicService::class.java)
+
+        btnStart.setOnClickListener {
+            startService(intentService)
+        }
+
+        btnStop.setOnClickListener {
+            stopService(intentService)
+        }
     }
 
     companion object {

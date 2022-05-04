@@ -23,10 +23,11 @@ class BroadcastReceiverExampleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_broadcast_receiver_example)
-        messageReceiver = MessageReceiver()
-        registerReceiver(messageReceiver, IntentFilter(WifiManager.WIFI_STATE_CHANGED_ACTION))
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        messageReceiver = MessageReceiver()
+        registerReceiver(messageReceiver, IntentFilter(WifiManager.WIFI_STATE_CHANGED_ACTION))
     }
 
     override fun onSupportNavigateUp(): Boolean {

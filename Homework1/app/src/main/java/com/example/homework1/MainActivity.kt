@@ -9,14 +9,25 @@ import com.google.android.material.button.MaterialButton
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var btnService: MaterialButton
+    private lateinit var btnBroadcastReceiver: MaterialButton
+    private lateinit var btnContentProvider: MaterialButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btnService: MaterialButton = findViewById(R.id.btn_service)
-        val btnBroadcastReceiver: MaterialButton = findViewById(R.id.btn_broadcast_receive)
-        val btnContentProvider: MaterialButton = findViewById(R.id.btn_content_provider)
+        initView()
+        setClickListener()
+    }
 
+    private fun initView() {
+        btnService = findViewById(R.id.btn_service)
+        btnBroadcastReceiver = findViewById(R.id.btn_broadcast_receive)
+        btnContentProvider = findViewById(R.id.btn_content_provider)
+    }
+
+    private fun setClickListener() {
         btnService.setOnClickListener {
             startActivity(ServiceExampleActivity.createIntent(this))
         }

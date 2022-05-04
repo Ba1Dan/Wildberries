@@ -12,21 +12,21 @@
         android:id="@+id/btn_service"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAllCaps="false"
+        style="@style/button_style"
         android:text="@string/service" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_broadcast_receive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAllCaps="false"
+        style="@style/button_style"
         android:text="@string/broadcast_receiver" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_content_provider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:text="@string/content_provider" />
+        android:text="@string/content_provider"
+        style="@style/button_style" />
 
 </LinearLayout>
