@@ -6,12 +6,12 @@ import android.database.sqlite.SQLiteOpenHelper
 
 class DatabaseHelper(context: Context?) : SQLiteOpenHelper(
     context,
-    MyContentProvider.DATABASE_NAME,
+    DATABASE_NAME,
     null,
-    MyContentProvider.DATABASE_VERSION
+    DATABASE_VERSION
 ) {
     override fun onCreate(db: SQLiteDatabase) {
-        db.execSQL(MyContentProvider.QUERY_CREATE_DB_TABLE)
+        db.execSQL(QUERY_CREATE_DB_TABLE)
     }
 
     override fun onUpgrade(
@@ -21,5 +21,18 @@ class DatabaseHelper(context: Context?) : SQLiteOpenHelper(
     ) {
         db.execSQL("DROP TABLE IF EXISTS ${MyContentProvider.TABLE_NAME}")
         onCreate(db)
+    }
+
+    companion object {
+        private const val DATABASE_NAME = "UserDB"
+        private const val DATABASE_VERSION = 1
+
+        const val COLUMN_ID = "id"
+        const val COLUMN_NAME = "name"
+
+        private const val QUERY_CREATE_DB_TABLE =
+            ("CREATE TABLE " + MyContentProvider.TABLE_NAME
+                    + " ($COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + " $COLUMN_NAME TEXT NOT NULL);")
     }
 }

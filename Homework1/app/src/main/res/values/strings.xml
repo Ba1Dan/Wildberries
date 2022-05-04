@@ -9,6 +9,8 @@
     <string name="back">Back</string>
     <string name="save">Save</string>
     <string name="saved">Saved</string>
+    <string name="error">Error</string>
     <string name="enter_value">Enter value</string>
     <string name="load_data">Load data</string>
+    <string name="title_broadcast_receiver">Broadcast Receiver</string>
 </resources>

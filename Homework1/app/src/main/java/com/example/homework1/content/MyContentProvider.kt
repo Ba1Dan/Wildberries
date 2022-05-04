@@ -1,10 +1,12 @@
 package com.example.homework1.content
 
-import android.content.*
+import android.content.ContentProvider
+import android.content.ContentUris
+import android.content.ContentValues
+import android.content.UriMatcher
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
-import android.database.sqlite.SQLiteOpenHelper
 import android.database.sqlite.SQLiteQueryBuilder
 import android.net.Uri
 
@@ -17,21 +19,13 @@ class MyContentProvider : ContentProvider() {
         private val uriMatcher: UriMatcher = UriMatcher(UriMatcher.NO_MATCH)
         private val values: HashMap<String, String>? = null
 
-        private const val AUTHORITIES = "com.demo.user.provider"
-        const val URL = "content://$AUTHORITIES/users"
+        private const val AUTHORITIES = "com.example.user.provider"
 
+        const val URL = "content://$AUTHORITIES/users"
         const val id = "id"
         const val name = "name"
         const val uriCode = 1
-
-        const val DATABASE_NAME = "UserDB"
         const val TABLE_NAME = "Users"
-        const val DATABASE_VERSION = 1
-
-        const val QUERY_CREATE_DB_TABLE =
-            ("CREATE TABLE " + TABLE_NAME
-                    + " (id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + " name TEXT NOT NULL);")
 
         val CONTENT_URI: Uri = Uri.parse(URL)
 
@@ -85,7 +79,7 @@ class MyContentProvider : ContentProvider() {
 
     override fun getType(uri: Uri): String {
         return when (uriMatcher.match(uri)) {
-            uriCode -> "vnd.android.cursor.dir/users"
+            uriCode -> "com.android.cursor.dir/values"
             else -> throw IllegalArgumentException("Unsupported URI: $uri")
         }
     }
@@ -98,7 +92,7 @@ class MyContentProvider : ContentProvider() {
             context?.contentResolver?.notifyChange(resultUri, null) ?: return null
             return resultUri
         }
-        throw SQLiteException("Failed to add a record into $uri")
+        return null
     }
 
     override fun delete(uri: Uri, selection: String?, selectionArgs: Array<out String>?): Int {

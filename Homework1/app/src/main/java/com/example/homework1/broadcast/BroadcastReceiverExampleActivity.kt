@@ -27,11 +27,6 @@ class BroadcastReceiverExampleActivity : AppCompatActivity() {
         registerReceiver(messageReceiver, IntentFilter(WifiManager.WIFI_STATE_CHANGED_ACTION))
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        val btnBack: MaterialButton = findViewById(R.id.btn_back)
-        btnBack.setOnClickListener {
-            finish()
-        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

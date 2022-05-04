@@ -21,7 +21,6 @@ class ServiceExampleActivity : AppCompatActivity() {
 
         val btnStart: MaterialButton = findViewById(R.id.btn_start)
         val btnStop: MaterialButton = findViewById(R.id.btn_stop)
-        val btnBack: MaterialButton = findViewById(R.id.btn_back)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -33,10 +32,6 @@ class ServiceExampleActivity : AppCompatActivity() {
 
         btnStop.setOnClickListener {
             stopService(intent)
-        }
-
-        btnBack.setOnClickListener {
-            finish()
         }
     }
 

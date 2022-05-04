@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.homework1.R
+import com.example.homework1.content.DatabaseHelper.Companion.COLUMN_NAME
 import com.google.android.material.button.MaterialButton
 
 /**
@@ -17,7 +18,7 @@ import com.google.android.material.button.MaterialButton
  * - сохранять данные в таблицу бд SQLite
  * - выводить сохраненные данные
  *
- * Примеры использования ContentProvider в приложениях - Телефонная книга, Сообщения.
+ * Примеры использования ContentProvider в приложениях - Контакты, Сообщения.
  * */
 class ContentProviderExampleActivity : AppCompatActivity() {
 
@@ -53,8 +54,12 @@ class ContentProviderExampleActivity : AppCompatActivity() {
         val values = ContentValues()
         values.put(MyContentProvider.name, etValue.text.toString())
 
-        contentResolver.insert(MyContentProvider.CONTENT_URI, values)
-        Toast.makeText(this, getString(R.string.saved), Toast.LENGTH_SHORT).show()
+        val uri = contentResolver.insert(MyContentProvider.CONTENT_URI, values)
+        if (uri != null) {
+            Toast.makeText(this, getString(R.string.saved), Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, getString(R.string.error), Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun loadDataFromContentProvider() {
@@ -63,7 +68,7 @@ class ContentProviderExampleActivity : AppCompatActivity() {
             if (cursor.moveToFirst()) {
                 val str = StringBuilder()
                 while (!cursor.isAfterLast) {
-                    val name = cursor.getColumnIndex("name")
+                    val name = cursor.getColumnIndex(COLUMN_NAME)
                     str.append(cursor.getString(name) + "\n")
                     cursor.moveToNext()
                 }

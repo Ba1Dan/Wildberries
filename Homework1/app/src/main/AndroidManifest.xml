@@ -12,7 +12,7 @@
 
         <provider
             android:name=".content.MyContentProvider"
-            android:authorities="com.demo.user.provider"
+            android:authorities="com.example.user.provider"
             android:enabled="true"
             android:exported="true"/>
 
