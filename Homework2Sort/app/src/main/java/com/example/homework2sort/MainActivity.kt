@@ -13,7 +13,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-
+/**
+ * Реализовны 3 сортировки: Быстрая сортировка, Пузырьковая сортировка и сортировка из коробки
+ * 3 структуры данных: массив, связный список, динамический массив.
+ *
+ * */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var spinnerDataStructure: Spinner
