@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".constraint.TelegramActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/settings_header_bloc"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/settings_user_photo"
+            android:layout_width="@dimen/settings_user_photo_width"
+            android:layout_height="@dimen/settings_user_photo_height"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/ShapeAppearance.App.CircleImageView" />
+
+        <TextView
+            android:id="@+id/settings_username"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:text="@string/settings_username"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/normalText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/settings_user_photo"
+            app:layout_constraintTop_toTopOf="@id/settings_user_photo" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:text="@string/settings_status"
+            android:textColor="@color/colorAccentDark"
+            android:textSize="@dimen/smallText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/settings_user_photo"
+            app:layout_constraintTop_toBottomOf="@id/settings_username" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/label_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin"
+        android:layout_marginTop="@dimen/vertical_large_margin"
+        android:text="@string/settings_text_account"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/smallText"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/settings_header_bloc" />
+
+    <TextView
+        android:id="@+id/tv_phone_number"
+        style="@style/normalText"
+        android:text="@string/settings_number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_account" />
+
+    <TextView
+        android:id="@+id/label_phone_number"
+        style="@style/smallText"
+        android:text="@string/settings_label_phone_number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_phone_number" />
+
+    <View
+        android:id="@+id/separator2"
+        style="@style/separator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_phone_number" />
+
+    <TextView
+        android:id="@+id/tv_login"
+        style="@style/normalText"
+        android:text="@string/settings_login"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/separator2" />
+
+    <TextView
+        android:id="@+id/label_login"
+        style="@style/smallText"
+        android:text="@string/settings_label_login"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_login" />
+
+    <View
+        android:id="@+id/separator3"
+        style="@style/separator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_login" />
+
+    <TextView
+        android:id="@+id/tv_bio"
+        style="@style/normalText"
+        android:text="@string/settings_default_bio"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/separator3" />
+
+    <TextView
+        android:id="@+id/label_bio"
+        style="@style/smallText"
+        android:text="@string/settings_label_bio"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_bio" />
+
+    <View
+        android:id="@+id/separator4"
+        style="@style/separator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_bio" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_load_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/horizontal_margin"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/ic_camera"
+        app:borderWidth="0dp"
+        app:elevation="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/settings_header_bloc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_header_bloc"
+        app:tint="@color/grey" />
+
+    <TextView
+        android:id="@+id/label_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin"
+        android:layout_marginTop="@dimen/vertical_large_margin"
+        android:text="@string/label_settings"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/smallText"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/separator4" />
+
+    <ImageView
+        android:id="@+id/icon_notifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/icon_notifications"
+        android:src="@drawable/ic_notifications"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_settings" />
+
+    <TextView
+        android:id="@+id/label_notifications"
+        style="@style/normalText"
+        android:text="@string/label_notifications_and_sounds"
+        app:layout_constraintBottom_toBottomOf="@id/icon_notifications"
+        app:layout_constraintStart_toEndOf="@id/icon_notifications"
+        app:layout_constraintTop_toTopOf="@id/icon_notifications" />
+
+    <ImageView
+        android:id="@+id/icon_privacy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/icon_security"
+        android:src="@drawable/ic_lock"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icon_notifications" />
+
+    <TextView
+        android:id="@+id/label_privacy"
+        style="@style/normalText"
+        android:text="@string/label_privacy_and_security"
+        app:layout_constraintBottom_toBottomOf="@id/icon_privacy"
+        app:layout_constraintStart_toEndOf="@id/icon_privacy"
+        app:layout_constraintTop_toTopOf="@id/icon_privacy" />
+
+    <View
+        android:id="@+id/separator"
+        style="@style/separator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_privacy" />
+
+    <ImageView
+        android:id="@+id/icon_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/icon_storage"
+        android:src="@drawable/ic_data_usage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/separator" />
+
+    <TextView
+        android:id="@+id/label_data_and_storage"
+        style="@style/normalText"
+        android:text="@string/data_and_storage"
+        app:layout_constraintBottom_toBottomOf="@id/icon_data"
+        app:layout_constraintStart_toEndOf="@id/icon_data"
+        app:layout_constraintTop_toTopOf="@id/icon_data" />
+
+    <ImageView
+        android:id="@+id/icon_chat_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/icon_chat"
+        android:src="@drawable/ic_chat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icon_data" />
+
+    <TextView
+        android:id="@+id/label_chat_settings"
+        style="@style/normalText"
+        android:text="@string/chat_settings"
+        app:layout_constraintBottom_toBottomOf="@id/icon_chat_settings"
+        app:layout_constraintStart_toEndOf="@id/icon_chat_settings"
+        app:layout_constraintTop_toTopOf="@id/icon_chat_settings" />
+
+    <View
+        android:id="@+id/separator1"
+        style="@style/separator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_chat_settings" />
+
+
+    <ImageView
+        android:id="@+id/icon_chat_folders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/icon_chat"
+        android:src="@drawable/ic_folder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/separator1" />
+
+    <TextView
+        android:id="@+id/label_chat_folders"
+        style="@style/normalText"
+        android:text="@string/chat_folders"
+        app:layout_constraintBottom_toBottomOf="@id/icon_chat_folders"
+        app:layout_constraintStart_toEndOf="@id/icon_chat_folders"
+        app:layout_constraintTop_toTopOf="@id/icon_chat_folders" />
+
+    <ImageView
+        android:id="@+id/icon_devices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/icon_devices"
+        android:src="@drawable/ic_devices"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icon_chat_folders" />
+
+    <TextView
+        android:id="@+id/label_devices"
+        style="@style/normalText"
+        android:text="@string/devices"
+        app:layout_constraintBottom_toBottomOf="@id/icon_devices"
+        app:layout_constraintStart_toEndOf="@id/icon_devices"
+        app:layout_constraintTop_toTopOf="@id/icon_devices" />
+
+    <View
+        style="@style/separator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_privacy" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

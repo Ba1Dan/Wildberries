@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".constraint.CalculatorActivity">
+
+    <TextView
+        android:id="@+id/txt_numbers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="789+56" />
+
+    <ImageView
+        android:id="@+id/btn_history"
+        style="@style/settingsButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/button_history"
+        android:src="@drawable/ic_history"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_numbers" />
+
+    <ImageView
+        android:id="@+id/btn_rule"
+        style="@style/settingsButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/button_rule"
+        android:src="@drawable/ic_horizontal_rule"
+        app:layout_constraintStart_toEndOf="@id/btn_history"
+        app:layout_constraintTop_toBottomOf="@id/txt_numbers" />
+
+    <ImageView
+        android:id="@+id/btn_math"
+        style="@style/settingsButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/button_math"
+        android:src="@drawable/ic_engineering"
+        app:layout_constraintStart_toEndOf="@id/btn_rule"
+        app:layout_constraintTop_toBottomOf="@id/txt_numbers" />
+
+    <ImageView
+        android:id="@+id/btn_backspace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/backspace"
+        android:src="@drawable/ic_backspace"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_numbers" />
+
+    <View
+        android:id="@+id/divider"
+        style="@style/separator"
+        android:background="@color/light_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_history" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_cancel"
+        style="@style/calculatorStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="@string/sign_cancel"
+        android:textColor="@android:color/holo_red_light"
+        app:layout_constraintEnd_toStartOf="@+id/btn_brackets"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_brackets"
+        style="@style/calculatorStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="@string/sign_brackets"
+        android:textColor="@android:color/holo_green_light"
+        app:layout_constraintEnd_toStartOf="@+id/btn_percent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_cancel"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_percent"
+        style="@style/calculatorStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="@string/sign_percent"
+        android:textColor="@android:color/holo_green_light"
+        app:layout_constraintEnd_toStartOf="@+id/btn_divider"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_brackets"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_divider"
+        style="@style/circleStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="20dp"
+        android:text="@string/sign_divider"
+        android:textColor="@android:color/holo_green_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_percent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Button.Circle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_seven"
+        style="@style/calculatorStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="@string/sign_seven"
+        app:layout_constraintEnd_toStartOf="@+id/btn_eight"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_cancel" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_eight"
+        style="@style/calculatorStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="@string/sign_eight"
+        app:layout_constraintEnd_toStartOf="@+id/btn_nine"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_seven"
+        app:layout_constraintTop_toBottomOf="@id/btn_cancel" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_nine"
+        style="@style/calculatorStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="@string/sign_nine"
+        app:layout_constraintEnd_toStartOf="@+id/btn_multiply"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_eight"
+        app:layout_constraintTop_toBottomOf="@id/btn_cancel" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_multiply"
+        style="@style/circleStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="20dp"
+        android:text="@string/sign_multiply"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@android:color/holo_green_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_nine"
+        app:layout_constraintTop_toBottomOf="@id/btn_cancel"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Button.Circle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_four"
+        style="@style/calculatorStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="@string/sign_four"
+        app:layout_constraintEnd_toStartOf="@+id/btn_five"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_seven" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_five"
+        style="@style/calculatorStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="@string/sign_five"
+        app:layout_constraintEnd_toStartOf="@+id/btn_six"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_four"
+        app:layout_constraintTop_toBottomOf="@id/btn_seven" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_six"
+        style="@style/calculatorStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="@string/sign_six"
+        app:layout_constraintEnd_toStartOf="@+id/btn_minus"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_five"
+        app:layout_constraintTop_toBottomOf="@id/btn_seven" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_minus"
+        style="@style/circleStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="20dp"
+        android:text="@string/sign_minus"
+        android:textColor="@android:color/holo_green_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_six"
+        app:layout_constraintTop_toBottomOf="@id/btn_seven"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Button.Circle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_one"
+        style="@style/calculatorStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="@string/sign_one"
+        app:layout_constraintEnd_toStartOf="@+id/btn_two"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_four" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_two"
+        style="@style/calculatorStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="@string/sign_two"
+        app:layout_constraintEnd_toStartOf="@+id/btn_three"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_one"
+        app:layout_constraintTop_toBottomOf="@id/btn_four" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_three"
+        style="@style/calculatorStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="@string/sign_three"
+        app:layout_constraintEnd_toStartOf="@+id/btn_plus"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_two"
+        app:layout_constraintTop_toBottomOf="@id/btn_four" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_plus"
+        style="@style/circleStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="20dp"
+        android:text="@string/sign_plus"
+        android:textColor="@android:color/holo_green_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_three"
+        app:layout_constraintTop_toBottomOf="@id/btn_four"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Button.Circle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_plus_and_minus"
+        style="@style/calculatorStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="@string/sign_plus_and_minus"
+        app:layout_constraintEnd_toStartOf="@+id/btn_zero"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_one" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_zero"
+        style="@style/calculatorStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="@string/sign_zero"
+        app:layout_constraintEnd_toStartOf="@+id/btn_comma"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_plus_and_minus"
+        app:layout_constraintTop_toBottomOf="@id/btn_one" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_comma"
+        style="@style/calculatorStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="@string/sign_comma"
+        app:layout_constraintEnd_toStartOf="@+id/btn_equals"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_zero"
+        app:layout_constraintTop_toBottomOf="@id/btn_one" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_equals"
+        style="@style/circleStyle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="20dp"
+        android:backgroundTint="@android:color/holo_green_light"
+        android:text="@string/sign_equals"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_comma"
+        app:layout_constraintTop_toBottomOf="@id/btn_one"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Button.Circle" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_dark"
+    android:orientation="vertical"
+    tools:context=".constraint.AudioActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_down"
+            style="@style/styleButtonAudio"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:icon="@drawable/ic_arrow_downward" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/label_now_playing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/now_playing"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/txt_playlist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/music_in_car"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_devices"
+            style="@style/styleButtonAudio"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:icon="@drawable/ic_devices" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_list"
+            style="@style/styleButtonAudio"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:icon="@drawable/ic_list_bulleted" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        tools:itemCount="1"
+        tools:listitem="@layout/item_logo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_title_song"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:text="@string/default_song"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/txt_author_song"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/default_author"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_share"
+            style="@style/styleButtonAudio"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:icon="@drawable/ic_share" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_action"
+            style="@style/styleButtonAudio"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:icon="@drawable/ic_btn_action_menu" />
+
+    </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="20dp"
+        android:progressBackgroundTint="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txt_current_time_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:text="@string/start_time"
+            android:textAlignment="textStart"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/txt_end_time_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:text="@string/end_time"
+            android:textAlignment="textEnd"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingTop="20dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_no_favourite"
+            style="@style/styleButtonAudio"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:icon="@drawable/ic_baseline_favorite_border_24" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_previous_song"
+            style="@style/styleButtonAudio"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="20dp"
+            app:icon="@drawable/ic_baseline_skip_previous_24"
+            app:iconSize="36dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_play"
+            style="@style/circleStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:padding="0dp"
+            app:icon="@drawable/ic_play_arrow"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="36dp"
+            app:iconTint="@color/black"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Button.Circle" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_next_song"
+            style="@style/styleButtonAudio"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="20dp"
+            app:icon="@drawable/ic_baseline_skip_next_24"
+            app:iconSize="36dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_favourite"
+            style="@style/styleButtonAudio"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:icon="@drawable/ic_baseline_favorite_border_24" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_repeat"
+            style="@style/styleButtonAudio"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:icon="@drawable/ic_baseline_repeat_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_hq"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_hq"
+            style="@style/styleButtonAudio"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:icon="@drawable/ic_hq" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_timer"
+            style="@style/styleButtonAudio"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:icon="@drawable/ic_baseline_timer_24" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_shuffle"
+            style="@style/styleButtonAudio"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:icon="@drawable/ic_shuffle" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".constraint.TelegramActivity">
+
+    <LinearLayout
+        android:id="@+id/settings_header_bloc"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/settings_user_photo"
+            android:layout_width="@dimen/settings_user_photo_width"
+            android:layout_height="@dimen/settings_user_photo_height"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/ShapeAppearance.App.CircleImageView" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/settings_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:layout_marginTop="@dimen/vertical_margin"
+                android:text="@string/settings_username"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/normalText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/settings_user_photo"
+                app:layout_constraintTop_toTopOf="@id/settings_user_photo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:text="@string/settings_status"
+                android:textColor="@color/colorAccentDark"
+                android:textSize="@dimen/smallText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/settings_user_photo"
+                app:layout_constraintTop_toBottomOf="@id/settings_username" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-20dp">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_load_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/horizontal_margin"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/ic_camera"
+            app:borderWidth="0dp"
+            app:elevation="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/grey" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/label_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin"
+        android:layout_marginTop="@dimen/vertical_large_margin"
+        android:text="@string/settings_text_account"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/smallText"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_phone_number"
+        style="@style/normalText"
+        android:text="@string/settings_number" />
+
+    <TextView
+        android:id="@+id/label_phone_number"
+        style="@style/smallText"
+        android:text="@string/settings_label_phone_number" />
+
+    <View
+        android:id="@+id/separator2"
+        style="@style/separator" />
+
+    <TextView
+        android:id="@+id/tv_login"
+        style="@style/normalText"
+        android:text="@string/settings_login" />
+
+    <TextView
+        android:id="@+id/label_login"
+        style="@style/smallText"
+        android:text="@string/settings_label_login" />
+
+    <View
+        android:id="@+id/separator3"
+        style="@style/separator" />
+
+    <TextView
+        android:id="@+id/tv_bio"
+        style="@style/normalText"
+        android:text="@string/settings_default_bio" />
+
+    <TextView
+        android:id="@+id/label_bio"
+        style="@style/smallText"
+        android:text="@string/settings_label_bio" />
+
+    <View
+        android:id="@+id/separator4"
+        style="@style/separator" />
+
+    <TextView
+        android:id="@+id/label_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin"
+        android:layout_marginTop="@dimen/vertical_large_margin"
+        android:text="@string/label_settings"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/smallText"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/icon_notifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:contentDescription="@string/icon_notifications"
+            android:src="@drawable/ic_notifications" />
+
+        <TextView
+            android:id="@+id/label_notifications"
+            style="@style/normalText"
+            android:text="@string/label_notifications_and_sounds" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/icon_privacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:contentDescription="@string/icon_security"
+            android:src="@drawable/ic_lock" />
+
+        <TextView
+            android:id="@+id/label_privacy"
+            style="@style/normalText"
+            android:text="@string/label_privacy_and_security" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/separator"
+        style="@style/separator" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/icon_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:contentDescription="@string/icon_storage"
+            android:src="@drawable/ic_data_usage" />
+
+        <TextView
+            android:id="@+id/label_data_and_storage"
+            style="@style/normalText"
+            android:text="@string/data_and_storage" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/icon_chat_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:contentDescription="@string/icon_chat"
+            android:src="@drawable/ic_chat" />
+
+        <TextView
+            android:id="@+id/label_chat_settings"
+            style="@style/normalText"
+            android:text="@string/chat_settings" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/separator1"
+        style="@style/separator" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/icon_chat_folders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:contentDescription="@string/icon_chat"
+            android:src="@drawable/ic_folder" />
+
+        <TextView
+            android:id="@+id/label_chat_folders"
+            style="@style/normalText"
+            android:text="@string/chat_folders" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/icon_devices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:contentDescription="@string/icon_devices"
+            android:src="@drawable/ic_devices" />
+
+        <TextView
+            android:id="@+id/label_devices"
+            style="@style/normalText"
+            android:text="@string/devices" />
+    </LinearLayout>
+
+    <View style="@style/separator" />
+
+</LinearLayout>

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".constraint.CalculatorActivity">
+
+    <TextView
+        android:id="@+id/txt_numbers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        tools:text="789+56" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/btn_history"
+            style="@style/settingsButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/button_history"
+            android:src="@drawable/ic_history" />
+
+        <ImageView
+            android:id="@+id/btn_rule"
+            style="@style/settingsButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/button_rule"
+            android:src="@drawable/ic_horizontal_rule" />
+
+        <ImageView
+            android:id="@+id/btn_math"
+            style="@style/settingsButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/button_math"
+            android:src="@drawable/ic_engineering" />
+
+        <ImageView
+            android:id="@+id/btn_backspace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/backspace"
+            android:src="@drawable/ic_backspace" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider"
+        style="@style/separator"
+        android:background="@color/light_grey" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_cancel"
+            style="@style/calculatorStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="@string/sign_cancel"
+            android:textColor="@android:color/holo_red_light" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_brackets"
+            style="@style/calculatorStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="@string/sign_brackets"
+            android:textColor="@android:color/holo_green_light" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_percent"
+            style="@style/calculatorStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="@string/sign_percent"
+            android:textColor="@android:color/holo_green_light" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_divider"
+            style="@style/circleStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="20dp"
+            android:text="@string/sign_divider"
+            android:textColor="@android:color/holo_green_light"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Button.Circle" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_seven"
+            style="@style/calculatorStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="@string/sign_seven" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_eight"
+            style="@style/calculatorStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="@string/sign_eight" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_nine"
+            style="@style/calculatorStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="@string/sign_nine" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_multiply"
+            style="@style/circleStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="20dp"
+            android:text="@string/sign_multiply"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@android:color/holo_green_light"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Button.Circle" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_four"
+            style="@style/calculatorStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="@string/sign_four" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_five"
+            style="@style/calculatorStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="@string/sign_five" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_six"
+            style="@style/calculatorStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="@string/sign_six" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_minus"
+            style="@style/circleStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="20dp"
+            android:text="@string/sign_minus"
+            android:textColor="@android:color/holo_green_light"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Button.Circle" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_one"
+            style="@style/calculatorStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="@string/sign_one" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_two"
+            style="@style/calculatorStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="@string/sign_two" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_three"
+            style="@style/calculatorStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="@string/sign_three" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_plus"
+            style="@style/circleStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="20dp"
+            android:text="@string/sign_plus"
+            android:textColor="@android:color/holo_green_light"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Button.Circle" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_plus_and_minus"
+            style="@style/calculatorStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="@string/sign_plus_and_minus" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_zero"
+            style="@style/calculatorStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="@string/sign_zero" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_comma"
+            style="@style/calculatorStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="@string/sign_comma" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_equals"
+            style="@style/circleStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="20dp"
+            android:backgroundTint="@android:color/holo_green_light"
+            android:text="@string/sign_equals"
+            android:textColor="@color/white"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Button.Circle" />
+    </LinearLayout>
+</LinearLayout>
