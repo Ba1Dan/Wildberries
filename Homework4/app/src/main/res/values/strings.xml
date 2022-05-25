@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Homework4</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_input_message">Message</string>
+    <string name="input_name">Input name</string>
+    <string name="create">Create</string>
+    <string name="label_name">Name</string>
+    <string name="open_screen_list_of_chats_with_recyclerview">Open screen \'List of chats\' with RecyclerView</string>
+    <string name="open_screen_list_of_chats_without_recyclerview">Open screen \'List of chats\' without RecyclerView</string>
+
+    <string name="action_edit">Изменить</string>
+    <string name="action_delete">Удалить</string>
+    <string name="action_copy">Скопировать</string>
+    <string name="copied_to_clipboard">Скопировано</string>
+    <string name="deleted_message">Удалено</string>
+
+</resources>
