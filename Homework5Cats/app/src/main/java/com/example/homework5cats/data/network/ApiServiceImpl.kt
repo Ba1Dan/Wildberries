@@ -13,23 +13,17 @@ class ApiServiceImpl(
 ) : ApiService {
 
     override suspend fun getProducts(): List<Cat> {
-        return try {
-            client.get {
-                url("https://api.thecatapi.com/v1/images/search")
-                header("x-api-key", "46f227b0-75bb-48e2-bc68-c32059d0228a")
-            }
-        } catch (ex: Exception) {
-            // 3xx - responses
-            println("Error: $ex")
-            emptyList()
+        return client.get {
+            url(URL_SEARCH)
+            header(HEADER_NAME, API_KEY)
         }
     }
 
     override suspend fun saveImageInFavourites(favourite: FavouriteModel): ResponseModel? {
         return try {
             client.post<ResponseModel> {
-                url("https://api.thecatapi.com/v1/favourites")
-                header("x-api-key", "46f227b0-75bb-48e2-bc68-c32059d0228a")
+                url(URL_FAVOURITES)
+                header(HEADER_NAME, API_KEY)
                 body = favourite
             }
         } catch (e: Exception) {
@@ -38,13 +32,19 @@ class ApiServiceImpl(
     }
 
     override suspend fun getFavouriteCats(): List<FavouriteCat> {
-        return try {
-            client.get {
-                url("https://api.thecatapi.com/v1/favourites")
-                header("x-api-key", "46f227b0-75bb-48e2-bc68-c32059d0228a")
-            }
-        } catch (ex: Exception) {
-            emptyList()
+        return client.get {
+            url(URL_FAVOURITES)
+            header(HEADER_NAME, API_KEY)
         }
+    }
+
+    companion object {
+
+        private const val BASE_URL = "https://api.thecatapi.com/v1"
+        private const val URL_FAVOURITES = "$BASE_URL/favourites"
+        private const val URL_SEARCH = "$BASE_URL/search"
+
+        private const val HEADER_NAME = "x-api-key"
+        private const val API_KEY = "46f227b0-75bb-48e2-bc68-c32059d0228a"
     }
 }

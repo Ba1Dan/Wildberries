@@ -32,7 +32,6 @@ interface ApiService {
                     // JSON
                     install(JsonFeature) {
                         serializer = KotlinxSerializer(json)
-                        //or serializer = KotlinxSerializer()
                     }
                     // Timeout
                     install(HttpTimeout) {
@@ -42,8 +41,6 @@ interface ApiService {
                     }
                     // Apply to all requests
                     defaultRequest {
-                        // Parameter("api_key", "some_api_key")
-                        // Content Type
                         if (method != HttpMethod.Get) contentType(ContentType.Application.Json)
                         accept(ContentType.Application.Json)
                     }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.homework5cats.data.model.Cat
 import com.example.homework5cats.data.model.FavouriteCat
@@ -50,14 +51,16 @@ class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>() {
     private fun render(state: State<List<FavouriteCat>>) {
         when (state) {
             is State.Result -> {
+                binding.progressBar.isVisible = false
                 catsAdapter.cats = state.data
             }
 
             is State.Loading -> {
-
+                binding.progressBar.isVisible = true
             }
 
             is State.Error -> {
+                binding.progressBar.isVisible = false
                 Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
             }
         }
