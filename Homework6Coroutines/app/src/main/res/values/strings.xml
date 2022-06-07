@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Homework6Coroutines</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="reset">Reset</string>
+    <string name="pause">Pause</string>
+    <string name="play">Play</string>
+</resources>
