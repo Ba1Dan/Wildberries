@@ -27,12 +27,9 @@ class StopWatch {
             this@StopWatch.isActive = true
             while (this@StopWatch.isActive) {
                 delay(1000L)
-                timeMillis += System.currentTimeMillis() - lastTimeStamp
-                lastTimeStamp = System.currentTimeMillis()
-                formattedTime.emit(formatTime(timeMillis))
-                changeColor.emit(changeColor(timeMillis))
-                num += Random.nextInt(0, 10)
-                number.emit(num)
+                updateTime()
+                updateColor()
+                updateNumber()
             }
         }
     }
@@ -70,6 +67,21 @@ class StopWatch {
             return StateBackground.Changed(-Random.nextInt(255 * 255 * 255))
         }
         return StateBackground.Resumed
+    }
+
+    private suspend fun updateNumber() {
+        num += Random.nextInt(0, 10)
+        number.emit(num)
+    }
+
+    private suspend fun updateColor() {
+        changeColor.emit(changeColor(timeMillis))
+    }
+
+    private suspend fun updateTime() {
+        timeMillis += System.currentTimeMillis() - lastTimeStamp
+        lastTimeStamp = System.currentTimeMillis()
+        formattedTime.emit(formatTime(timeMillis))
     }
 
     companion object {
