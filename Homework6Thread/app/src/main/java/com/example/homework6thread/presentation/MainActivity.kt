@@ -1,7 +1,8 @@
-package com.example.homework6thread
+package com.example.homework6thread.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.homework6thread.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

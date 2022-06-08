@@ -1,10 +1,11 @@
-package com.example.homework6thread
+package com.example.homework6thread.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.homework6thread.databinding.FragmentNumberBinding
+import com.example.homework6thread.di.GlobalDI
 
 
 class NumberFragment : BaseFragment<FragmentNumberBinding>() {

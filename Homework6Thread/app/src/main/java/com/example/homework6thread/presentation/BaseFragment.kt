@@ -1,4 +1,4 @@
-package com.example.homework6thread
+package com.example.homework6thread.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater

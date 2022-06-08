@@ -1,4 +1,4 @@
-package com.example.homework6thread
+package com.example.homework6thread.presentation
 
 import android.os.Bundle
 import android.os.Handler
@@ -7,7 +7,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import com.example.homework6thread.databinding.FragmentStopWatchBinding
+import com.example.homework6thread.di.GlobalDI
+import com.example.homework6thread.domain.StateBackground
 import java.util.*
 import kotlin.random.Random
 
@@ -23,24 +26,45 @@ class StopWatchFragment : BaseFragment<FragmentStopWatchBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.btnPlay.setOnClickListener {
-            startTime()
+            viewModel.start()
         }
 
         binding.btnPause.setOnClickListener {
-            pauseTime()
+            viewModel.pause()
         }
 
         binding.btnReset.setOnClickListener {
-            resetTime()
+            viewModel.reset()
         }
 
-        Thread{
-            Looper.prepare()
-            handler = Handler(Looper.myLooper()!!)
-            handler.postDelayed(timeUpdaterRunnable, 1000)
-            Looper.loop()
-        }.start()
+        viewModel.time.observe(viewLifecycleOwner) { result ->
+            binding.tvTime.text = result
+        }
+
+        viewModel.color.observe(viewLifecycleOwner) {state ->
+            when(state) {
+                is StateBackground.Reset -> {
+                    binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), android.R.color.white))
+                }
+                is StateBackground.Resumed -> {
+
+                }
+                is StateBackground.Changed -> {
+                    binding.root.setBackgroundColor(state.color)
+                }
+            }
+
+
+        }
+
+//        Thread{
+//            Looper.prepare()
+//            handler = Handler(Looper.myLooper()!!)
+//            handler.postDelayed(timeUpdaterRunnable, 1000)
+//            Looper.loop()
+//        }.start()
     }
 
     private fun resetTime() {
@@ -77,9 +101,6 @@ class StopWatchFragment : BaseFragment<FragmentStopWatchBinding>() {
             activity?.runOnUiThread {
                 binding.tvTime.text = time
             }
-            Log.d("threadcur", Thread.currentThread().name)
-
-            viewModel.updateNumber(result)
 
             if (seconds !=0 && running && seconds % 20 == 0) {
                 val randomColor: Int = -Random.nextInt(255 * 255 * 255)

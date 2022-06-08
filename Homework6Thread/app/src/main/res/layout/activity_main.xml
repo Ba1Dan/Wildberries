@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".presentation.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/main_fragment_container"
-        android:name="com.example.homework6thread.NumberFragment"
+        android:name="com.example.homework6thread.presentation.NumberFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:defaultNavHost="true"
@@ -28,7 +28,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/bottom_fragment_container"
-        android:name="com.example.homework6thread.StopWatchFragment"
+        android:name="com.example.homework6thread.presentation.StopWatchFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:defaultNavHost="true"
