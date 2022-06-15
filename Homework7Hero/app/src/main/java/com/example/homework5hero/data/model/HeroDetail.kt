@@ -11,6 +11,6 @@ class HeroDetail(
     val biography: Biography,
     @SerializedName("powerstats")
     val powerStats: PowerStats,
-    @SerializedName("image")
+    @SerializedName("images")
     val image: Image
 )

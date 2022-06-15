@@ -2,6 +2,7 @@ package com.example.homework5hero.presentation.list.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.RecyclerView
 import com.example.homework5hero.data.model.Hero
 import com.example.homework5hero.databinding.ItemHeroBinding
@@ -10,12 +11,11 @@ import com.squareup.picasso.Picasso
 
 class HeroesAdapter(private val onHeroClickListener: OnHeroClickListener) : RecyclerView.Adapter<HeroesAdapter.HeroViewHolder>() {
 
-    private val data = mutableListOf<Hero>()
-    fun setDataSource(newData: List<Hero>) {
-        data.clear()
-        data.addAll(newData)
-        notifyDataSetChanged()
-    }
+    private val differ = AsyncListDiffer(this, HeroesDiffUtil)
+
+    var heroes: List<Hero>
+        set(value) = differ.submitList(value)
+        get() = differ.currentList
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeroViewHolder {
         return HeroViewHolder(
@@ -29,11 +29,11 @@ class HeroesAdapter(private val onHeroClickListener: OnHeroClickListener) : Recy
     }
 
     override fun onBindViewHolder(holder: HeroViewHolder, position: Int) {
-        holder.bind(data[position])
+        holder.bind(heroes[position])
     }
 
     override fun getItemCount(): Int {
-        return data.size
+        return heroes.size
     }
 
     class HeroViewHolder(private val binding: ItemHeroBinding, private val onHeroClickListener: OnHeroClickListener) :
@@ -47,8 +47,6 @@ class HeroesAdapter(private val onHeroClickListener: OnHeroClickListener) : Recy
             Picasso.with(binding.root.context)
                 .load(hero.image.url)
                 .transform(CircularTransformation(300))
-//                .placeholder(R.drawable.user_placeholder)
-//                .error(R.drawable.user_placeholder_error)
                 .into(binding.ivPhoto)
         }
     }

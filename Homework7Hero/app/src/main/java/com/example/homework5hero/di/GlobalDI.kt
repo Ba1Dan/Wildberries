@@ -20,12 +20,11 @@ class GlobalDI private constructor(private val context: Context) {
     private val localDataSource by lazy { LocalDataSource(sharedPreferencesManager) }
     private val repository by lazy { HeroesRepositoryImpl(RequestManager.service, localDataSource) }
 
-    private val searchHeroesUseCase by lazy { SearchHeroesUseCase(repository) }
     val getInfoHero by lazy { GetInfoHero(repository) }
 
     val listHeroesViewModel by lazy {
         ListHeroesViewModel(
-            searchHeroesUseCase = searchHeroesUseCase
+            repository
         )
     }
 

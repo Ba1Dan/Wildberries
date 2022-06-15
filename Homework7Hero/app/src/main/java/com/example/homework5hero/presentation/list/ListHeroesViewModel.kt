@@ -1,31 +1,34 @@
 package com.example.homework5hero.presentation.list
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.homework5hero.data.model.Hero
 import com.example.homework5hero.domain.repository.HeroesRepository
-import com.example.homework5hero.domain.usecase.SearchHeroesUseCase
+import com.example.homework5hero.presentation.State
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class ListHeroesViewModel(private val searchHeroesUseCase: SearchHeroesUseCase) : ViewModel() {
+class ListHeroesViewModel(private val heroesRepository: HeroesRepository) : ViewModel() {
 
-    private val _heroes: MutableLiveData<List<Hero>> = MutableLiveData()
-    val heroes: LiveData<List<Hero>> = _heroes
+    private val _heroes: MutableLiveData<State<List<Hero>>> = MutableLiveData()
+    val heroes: LiveData<State<List<Hero>>> = _heroes
 
     fun searchHeroes(query: String) {
-
+        _heroes.value = State.Loading
         try {
             viewModelScope.launch(Dispatchers.IO) {
-                val data = searchHeroesUseCase.execute(query)
-                Log.d("ListHeroesViewModel", "$data")
-                _heroes.postValue(data)
+                //Берем данные из sharedPreferences
+                val cache = heroesRepository.getHeroesFromLocal()
+                _heroes.postValue(State.Result(cache))
+
+                //Берем свежие данные с сервера
+                val data = heroesRepository.searchHeroes(query)
+                _heroes.postValue(State.Result(data))
             }
         } catch (e: Exception) {
-            Log.d("ListHeroesViewModel", "An error has occurred")
+            _heroes.value = State.Error(e.message)
         }
     }
 }

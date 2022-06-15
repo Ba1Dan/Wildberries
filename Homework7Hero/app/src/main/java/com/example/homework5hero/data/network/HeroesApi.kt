@@ -12,6 +12,6 @@ interface HeroesApi {
     @GET("all.json")
     suspend fun searchHeroes(): List<Hero>
 
-    @GET("$ACCESS_TOKEN/{heroId}")
+    @GET("id/{heroId}.json")
     suspend fun getInfoHero(@Path("heroId") id: Int): HeroDetail
 }

@@ -9,6 +9,7 @@ class SharedPreferencesManager(private val context: Context) {
 
     fun save(data: String) {
         val editor: SharedPreferences.Editor = mSettings.edit()
+        editor.clear()
         editor.putString(APP_PREFERENCES_NAME, data)
         editor.apply()
     }

@@ -2,7 +2,7 @@ package com.example.homework5hero.data.model
 
 import com.google.gson.annotations.SerializedName
 
-class Hero(
+data class Hero(
     @SerializedName("id")
     val id: Int,
     @SerializedName("name")
