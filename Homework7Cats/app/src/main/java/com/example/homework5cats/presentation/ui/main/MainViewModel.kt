@@ -1,6 +1,5 @@
 package com.example.homework5cats.presentation.ui.main
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -50,7 +49,6 @@ class MainViewModel(
     private fun handleResult(result: ResultModel<List<Cat>>) {
         when (result) {
             is ResultModel.Failure -> {
-                Log.d("handleResult", result.message.toString())
                 _cat.postValue(State.Error(result.message))
             }
             is ResultModel.Success -> {

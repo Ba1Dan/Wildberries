@@ -1,0 +1,16 @@
+package com.example.homework5hero.data.model
+
+import com.google.gson.annotations.SerializedName
+
+class HeroDetail(
+    @SerializedName("id")
+    val id: Int,
+    @SerializedName("name")
+    val name: String,
+    @SerializedName("biography")
+    val biography: Biography,
+    @SerializedName("powerstats")
+    val powerStats: PowerStats,
+    @SerializedName("image")
+    val image: Image
+)
