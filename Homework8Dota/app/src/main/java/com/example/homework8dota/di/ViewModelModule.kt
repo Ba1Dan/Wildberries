@@ -12,5 +12,5 @@ interface ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(HeroesViewModel::class)
-    fun bindChatViewModel(viewModel: HeroesViewModel): ViewModel
+    fun bindHeroesViewModel(viewModel: HeroesViewModel): ViewModel
 }
