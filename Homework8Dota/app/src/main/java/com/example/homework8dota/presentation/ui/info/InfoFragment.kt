@@ -1,6 +1,7 @@
 package com.example.homework8dota.presentation.ui.info
 
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -23,6 +24,7 @@ class InfoFragment : BaseFragment<FragmentInfoBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.tvGitHub.movementMethod = LinkMovementMethod.getInstance()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -35,9 +37,6 @@ class InfoFragment : BaseFragment<FragmentInfoBinding>() {
         }
         return super.onOptionsItemSelected(item)
     }
-
-
-
 
     companion object {
 
