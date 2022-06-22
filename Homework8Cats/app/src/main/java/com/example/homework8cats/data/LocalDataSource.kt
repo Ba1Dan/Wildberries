@@ -5,8 +5,9 @@ import androidx.lifecycle.Transformations
 import com.example.homework8cats.data.db.FavouriteCatsDao
 import com.example.homework8cats.data.db.entity.FavouriteCatEntity
 import com.example.homework8cats.data.model.FavouriteCat
+import javax.inject.Inject
 
-class LocalDataSource(
+class LocalDataSource @Inject constructor(
     private val favouriteCatsDao: FavouriteCatsDao
 ) {
 

@@ -12,7 +12,7 @@
     <string name="label_name">Имя:</string>
     <string name="default_name">Данияр</string>
     <string name="default_created_date">18.06.2022</string>
-    <string name="default_git_hub">Данияр</string>
+    <string name="default_git_hub"><a href="https://github.com/DanKaz-2019">DanKaz-2019</a></string>
     <string name="label_created_date">Дата создания:</string>
     <string name="label_github">GitHub:</string>
     <string name="about">About</string>

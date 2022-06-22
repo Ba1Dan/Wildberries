@@ -1,4 +1,4 @@
-package com.example.homework8hero.presentation.list
+package com.example.homework8hero.presentation.ui.list
 
 import android.content.Context
 import android.os.Bundle
@@ -13,8 +13,8 @@ import com.example.homework8dota.presentation.ui.base.BaseFragment
 import com.example.homework8hero.core.App
 import com.example.homework8hero.data.model.Hero
 import com.example.homework8hero.databinding.FragmentListHeroesBinding
-import com.example.homework8hero.presentation.list.adapter.HeroesAdapter
-import com.example.homework8hero.presentation.list.adapter.OnHeroClickListener
+import com.example.homework8hero.presentation.ui.list.adapter.HeroesAdapter
+import com.example.homework8hero.presentation.ui.list.adapter.OnHeroClickListener
 import com.example.homework8hero.presentation.util.Screens.DetailHero
 import com.example.homework8hero.presentation.util.State
 import com.example.homework8hero.presentation.util.ViewModelFactory

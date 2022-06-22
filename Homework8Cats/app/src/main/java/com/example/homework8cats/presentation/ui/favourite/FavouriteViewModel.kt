@@ -7,9 +7,10 @@ import com.example.homework8cats.domain.repository.CatsRepository
 import com.example.homework8cats.presentation.util.State
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
-class FavouriteViewModel(
+class FavouriteViewModel @Inject constructor(
     private val catsRepository: CatsRepository
 ) : ViewModel() {
 

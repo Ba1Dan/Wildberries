@@ -1,4 +1,4 @@
-package com.example.homework8hero.presentation.list.adapter
+package com.example.homework8hero.presentation.ui.list.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

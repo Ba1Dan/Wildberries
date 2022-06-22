@@ -1,7 +1,8 @@
-package com.example.homework8hero.presentation.info
+package com.example.homework8hero.presentation.ui.info
 
 import android.content.Context
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +27,7 @@ class InfoFragment : BaseFragment<FragmentInfoBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.tvGitHub.movementMethod = LinkMovementMethod.getInstance()
         binding.btnBack.setOnClickListener {
             router.exit()
         }

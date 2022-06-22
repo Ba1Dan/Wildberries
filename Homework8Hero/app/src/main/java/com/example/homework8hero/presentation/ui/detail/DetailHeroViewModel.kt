@@ -1,4 +1,4 @@
-package com.example.homework8hero.presentation.detail
+package com.example.homework8hero.presentation.ui.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

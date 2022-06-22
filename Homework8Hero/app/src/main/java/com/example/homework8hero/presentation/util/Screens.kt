@@ -1,8 +1,8 @@
 package com.example.homework8hero.presentation.util
 
-import com.example.homework8hero.presentation.detail.DetailHeroFragment
-import com.example.homework8hero.presentation.list.ListHeroesFragment
-import com.example.homework8hero.presentation.info.InfoFragment
+import com.example.homework8hero.presentation.ui.detail.DetailHeroFragment
+import com.example.homework8hero.presentation.ui.list.ListHeroesFragment
+import com.example.homework8hero.presentation.ui.info.InfoFragment
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 
 object Screens {

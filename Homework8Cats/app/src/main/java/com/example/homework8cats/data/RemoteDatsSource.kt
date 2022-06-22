@@ -2,8 +2,9 @@ package com.example.homework8cats.data
 
 import com.example.homework8cats.data.model.*
 import com.example.homework8cats.data.network.ApiService
+import javax.inject.Inject
 
-class RemoteDatsSource(private val apiService: ApiService) {
+class RemoteDatsSource @Inject constructor(private val apiService: ApiService) {
 
     suspend fun getCat(): ResultModel<List<Cat>> {
         return try {

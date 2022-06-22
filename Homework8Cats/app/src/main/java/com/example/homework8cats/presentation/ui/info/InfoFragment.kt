@@ -1,11 +1,10 @@
 package com.example.homework8cats.presentation.ui.info
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.homework8cats.R
 import com.example.homework8cats.databinding.FragmentInfoBinding
 import com.example.homework8cats.presentation.ui.base.BaseFragment
 
@@ -16,12 +15,11 @@ class InfoFragment : BaseFragment<FragmentInfoBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.tvGitHub.movementMethod = LinkMovementMethod.getInstance()
     }
 
     companion object {
 
-        fun newInstance(param1: String, param2: String) =
-            InfoFragment()
+        fun newInstance() = InfoFragment()
     }
 }

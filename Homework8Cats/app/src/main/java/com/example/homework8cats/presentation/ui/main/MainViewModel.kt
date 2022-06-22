@@ -10,8 +10,9 @@ import com.example.homework8cats.domain.usecase.SaveImageInFavouritesUseCase
 import com.example.homework8cats.presentation.util.State
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainViewModel(
+class MainViewModel @Inject constructor(
     private val getCatUseCase: GetCatUseCase,
     private val saveImageInFavouritesUseCase: SaveImageInFavouritesUseCase
 ) : ViewModel() {

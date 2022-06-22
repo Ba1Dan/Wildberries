@@ -5,8 +5,9 @@ import com.example.homework8cats.data.LocalDataSource
 import com.example.homework8cats.data.RemoteDatsSource
 import com.example.homework8cats.data.model.*
 import com.example.homework8cats.domain.repository.CatsRepository
+import javax.inject.Inject
 
-class CatsRepositoryImpl(
+class CatsRepositoryImpl @Inject constructor(
     private val remoteDatsSource: RemoteDatsSource,
     private val localDataSource: LocalDataSource
 ) : CatsRepository {

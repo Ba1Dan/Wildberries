@@ -1,4 +1,4 @@
-package com.example.homework8hero.presentation.detail
+package com.example.homework8hero.presentation.ui.detail
 
 import android.content.Context
 import android.os.Bundle

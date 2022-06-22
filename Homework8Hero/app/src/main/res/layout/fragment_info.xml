@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.info.InfoFragment">
+    tools:context=".presentation.ui.info.InfoFragment">
 
     <TextView
         android:id="@+id/label_about_app"
@@ -55,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="@string/default_name"
+        android:text="@string/default_git_hub"
         app:layout_constraintStart_toEndOf="@id/label_git_hub"
         app:layout_constraintTop_toTopOf="@id/label_git_hub" />
 
@@ -76,7 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="@string/default_name"
+        android:text="@string/default_created_date"
         app:layout_constraintStart_toEndOf="@id/label_created_date"
         app:layout_constraintTop_toTopOf="@id/label_created_date" />
 

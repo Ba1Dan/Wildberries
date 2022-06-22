@@ -28,7 +28,6 @@ class HeroesFragment : BaseFragment<FragmentHeroesBinding>(), OnHeroClickListene
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         (context.applicationContext as App).component.inject(this)

@@ -1,4 +1,4 @@
-package com.example.homework8hero.presentation.list.adapter
+package com.example.homework8hero.presentation.ui.list.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.homework8hero.data.model.Hero

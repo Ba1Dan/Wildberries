@@ -2,9 +2,9 @@ package com.example.homework8hero.di
 
 import android.content.Context
 import com.example.homework8hero.presentation.MainActivity
-import com.example.homework8hero.presentation.detail.DetailHeroFragment
-import com.example.homework8hero.presentation.list.ListHeroesFragment
-import com.example.homework8hero.presentation.info.InfoFragment
+import com.example.homework8hero.presentation.ui.detail.DetailHeroFragment
+import com.example.homework8hero.presentation.ui.list.ListHeroesFragment
+import com.example.homework8hero.presentation.ui.info.InfoFragment
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton

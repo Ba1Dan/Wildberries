@@ -1,17 +1,21 @@
 package com.example.homework8cats.presentation.ui.favourite
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.homework8cats.core.App
 import com.example.homework8cats.data.model.FavouriteCat
 import com.example.homework8cats.databinding.FragmentFavouriteBinding
-import com.example.homework8cats.di.GlobalDI
 import com.example.homework8cats.presentation.ui.base.BaseFragment
 import com.example.homework8cats.presentation.util.State
+import com.example.homework8cats.presentation.util.ViewModelFactory
+import javax.inject.Inject
 
 
 class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>() {
@@ -19,15 +23,24 @@ class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>() {
     private lateinit var viewModel: FavouriteViewModel
     private lateinit var catsAdapter: CatsAdapter
 
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (context.applicationContext as App).component.inject(this)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(this, viewModelFactory)[FavouriteViewModel::class.java]
+    }
+
     override fun getBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
     ): FragmentFavouriteBinding = FragmentFavouriteBinding.inflate(layoutInflater, container, false)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = GlobalDI.INSTANCE.favouriteViewModel
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
