@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.homework6thread.R
 
-/**
+/** Ответы на вопросы из 4 пункта
  * Handler может отправлять и обрабатывать объекты сообщений или объекты Runnable, связанные с одним потоком.
  * Каждый экземпляр Handler связан с 1 потоком и его очередью сообщений.
  * При создании объекта Handler также создается поток или очередь сообщений, и объект Handler отправляет и обрабатывает эти сообщения или объекты Runnable.
