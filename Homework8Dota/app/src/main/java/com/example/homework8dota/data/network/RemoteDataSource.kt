@@ -3,9 +3,10 @@ package com.example.homework8dota.data.network
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
+import javax.inject.Inject
 
 
-class RemoteDataSource(private val okHttpClient: OkHttpClient) {
+class RemoteDataSource @Inject constructor(private val okHttpClient: OkHttpClient) {
 
     fun getHeroes(): Response {
         val request: Request = Request.Builder().url(HERO_STATS).build()

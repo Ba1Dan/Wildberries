@@ -1,7 +1,9 @@
 package com.example.homework8dota.data.db
 
+import javax.inject.Inject
 
-class LocalDataSource(private val fileManager: FileManager) {
+
+class LocalDataSource @Inject constructor(private val fileManager: FileManager) {
 
     fun writeToFile(data: String) = fileManager.writeToFile(data)
 

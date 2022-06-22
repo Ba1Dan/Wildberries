@@ -1,12 +1,12 @@
 package com.example.homework8dota.core
 
 import android.app.Application
-import com.example.homework8dota.di.GlobalDI
+import com.example.homework8dota.di.DaggerAppComponent
 
 class App : Application() {
 
-    override fun onCreate() {
-        super.onCreate()
-        GlobalDI.init(applicationContext)
+    val component by lazy {
+        DaggerAppComponent.factory()
+            .create(this)
     }
 }

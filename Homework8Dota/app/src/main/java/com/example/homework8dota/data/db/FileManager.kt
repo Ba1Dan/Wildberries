@@ -3,8 +3,9 @@ package com.example.homework8dota.data.db
 import android.content.Context
 import android.util.Log
 import java.io.*
+import javax.inject.Inject
 
-class FileManager(private val context: Context) {
+class FileManager @Inject constructor(private val context: Context) {
 
     fun writeToFile(data: String) {
         var outputStreamWriter: OutputStreamWriter? = null

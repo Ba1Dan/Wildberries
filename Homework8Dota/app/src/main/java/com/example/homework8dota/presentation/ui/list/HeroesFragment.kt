@@ -1,25 +1,43 @@
 package com.example.homework8dota.presentation.ui.list
 
+import android.content.Context
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.homework8dota.R
+import com.example.homework8dota.core.App
 import com.example.homework8dota.data.model.Hero
 import com.example.homework8dota.databinding.FragmentHeroesBinding
-import com.example.homework8dota.di.GlobalDI
 import com.example.homework8dota.presentation.ui.base.BaseFragment
 import com.example.homework8dota.presentation.ui.detail.DetailFragment
 import com.example.homework8dota.presentation.ui.info.InfoFragment
 import com.example.homework8dota.presentation.util.State
+import com.example.homework8dota.presentation.util.ViewModelFactory
+import javax.inject.Inject
 
 
 class HeroesFragment : BaseFragment<FragmentHeroesBinding>(), OnHeroClickListener {
 
     private lateinit var heroesAdapter: HeroesAdapter
-    private val viewModel by lazy { GlobalDI.INSTANCE.heroesViewModel }
+    private lateinit var viewModel: HeroesViewModel
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (context.applicationContext as App).component.inject(this)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(this, viewModelFactory)[HeroesViewModel::class.java]
+    }
 
     override fun getBinding(
         inflater: LayoutInflater,

@@ -11,5 +11,5 @@
     <string name="label_github">GitHub:</string>
     <string name="about">About</string>
     <string name="about_app">О приложении</string>
-    <string name="about_app">О приложении</string>
+    <string name="no_network_connection">Нет соединения с Интернетом</string>
 </resources>

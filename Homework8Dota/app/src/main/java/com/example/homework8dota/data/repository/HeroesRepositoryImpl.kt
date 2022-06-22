@@ -8,8 +8,9 @@ import com.example.homework8dota.domain.repository.HeroesRepository
 import com.squareup.moshi.JsonAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class HeroesRepositoryImpl(
+class HeroesRepositoryImpl @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
     private val adapter: JsonAdapter<List<Hero>>,
     private val localDataSource: LocalDataSource

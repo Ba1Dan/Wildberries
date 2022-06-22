@@ -8,12 +8,15 @@ import com.example.homework8dota.data.model.Hero
 import com.example.homework8dota.data.model.ResultModel
 import com.example.homework8dota.domain.usecase.GetHeroesFromFileUseCase
 import com.example.homework8dota.domain.usecase.GetHeroesUseCase
+import com.example.homework8dota.presentation.util.NetworkManager
 import com.example.homework8dota.presentation.util.State
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HeroesViewModel(
+class HeroesViewModel @Inject constructor(
     private val getHeroesUseCase: GetHeroesUseCase,
-    private val getHeroesFromFileUseCase: GetHeroesFromFileUseCase
+    private val getHeroesFromFileUseCase: GetHeroesFromFileUseCase,
+    private val networkManager: NetworkManager
 ) : ViewModel() {
 
     private val _heroes: MutableLiveData<State<List<Hero>>> = MutableLiveData()
@@ -28,8 +31,10 @@ class HeroesViewModel(
                 _heroes.postValue(State.Result(data))
             }
 //          Берем свежие данные с сервера
-            val result = getHeroesUseCase.execute()
-            handleResult(result)
+            if (networkManager.isConnected().value) {
+                val result = getHeroesUseCase.execute()
+                handleResult(result)
+            }
         }
     }
 
