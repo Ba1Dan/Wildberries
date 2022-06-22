@@ -4,6 +4,7 @@ import androidx.lifecycle.*
 import com.example.homework8cats.data.model.FavouriteCat
 import com.example.homework8cats.data.model.ResultModel
 import com.example.homework8cats.domain.repository.CatsRepository
+import com.example.homework8cats.presentation.util.NetworkManager
 import com.example.homework8cats.presentation.util.State
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -11,18 +12,20 @@ import javax.inject.Inject
 
 
 class FavouriteViewModel @Inject constructor(
-    private val catsRepository: CatsRepository
+    private val catsRepository: CatsRepository,
+    private val networkManager: NetworkManager
 ) : ViewModel() {
 
     private val mediatorLiveData = MediatorLiveData<State<List<FavouriteCat>>>()
-//    private val _cat: MutableLiveData<State<List<FavouriteCat>>> = MutableLiveData()
     val cat: LiveData<State<List<FavouriteCat>>> = mediatorLiveData
 
     fun getFavouriteCat() {
         getFavouriteCatsFromDb()
-        viewModelScope.launch(Dispatchers.IO) {
-            val result = catsRepository.getFavouriteCats()
-            handleResult(result)
+        if(networkManager.isConnected().value) {
+            viewModelScope.launch(Dispatchers.IO) {
+                val result = catsRepository.getFavouriteCats()
+                handleResult(result)
+            }
         }
     }
 
@@ -45,7 +48,6 @@ class FavouriteViewModel @Inject constructor(
             is ResultModel.Success -> {
                     catsRepository.deleteAllFavouriteCats()
                     catsRepository.saveFavouriteCats(result.data)
-//                _cat.postValue(State.Result(result.data))
             }
         }
     }

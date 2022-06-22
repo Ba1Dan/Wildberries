@@ -25,22 +25,31 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        component.inject(this)
-        networkManager.registerCallback()
-
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.main_fragment_container) as NavHostFragment
-        val navController = navHostFragment.navController
-
-        binding.bottomNavigation.setupWithNavController(navController)
-
-        networkManager.isConnectedNetwork.observe(this) { network ->
-            binding.notification.root.isVisible = !network
-        }
+        init()
+        setNavController()
+        observeNetworkState()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         networkManager.unregisterCallback()
+    }
+
+    private fun init() {
+        component.inject(this)
+        networkManager.registerCallback()
+    }
+
+    private fun setNavController() {
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.main_fragment_container) as NavHostFragment
+        val navController = navHostFragment.navController
+        binding.bottomNavigation.setupWithNavController(navController)
+    }
+
+    private fun observeNetworkState() {
+        networkManager.isConnectedNetwork.observe(this) { network ->
+            binding.notification.root.isVisible = !network
+        }
     }
 }

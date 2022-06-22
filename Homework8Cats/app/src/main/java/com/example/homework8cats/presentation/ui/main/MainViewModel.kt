@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.homework8cats.data.model.*
 import com.example.homework8cats.domain.usecase.GetCatUseCase
 import com.example.homework8cats.domain.usecase.SaveImageInFavouritesUseCase
+import com.example.homework8cats.presentation.util.NetworkManager
 import com.example.homework8cats.presentation.util.State
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -14,36 +15,36 @@ import javax.inject.Inject
 
 class MainViewModel @Inject constructor(
     private val getCatUseCase: GetCatUseCase,
-    private val saveImageInFavouritesUseCase: SaveImageInFavouritesUseCase
+    private val saveImageInFavouritesUseCase: SaveImageInFavouritesUseCase,
+    private val networkManager: NetworkManager
 ) : ViewModel() {
 
     private val _cat: MutableLiveData<State<Cat>> = MutableLiveData()
     val cat: LiveData<State<Cat>> = _cat
 
-    private val _saveCat: MutableLiveData<ResponseModel> = MutableLiveData()
-    val saveCat: LiveData<ResponseModel> = _saveCat
-
     private var catId: String? = null
 
     fun getCat() {
         _cat.value = State.Loading
-        viewModelScope.launch(Dispatchers.IO) {
-            val result = getCatUseCase.execute()
-            handleResult(result)
+        if(networkManager.isConnected().value) {
+            viewModelScope.launch(Dispatchers.IO) {
+                val result = getCatUseCase.execute()
+                handleResult(result)
+            }
+        } else {
+            _cat.postValue(State.Error("Нет интернета"))
         }
     }
 
     fun saveImageInFavourites() {
-        if (catId != null) {
+        if (networkManager.isConnected().value) {
+            if (catId != null) {
                 viewModelScope.launch(Dispatchers.IO) {
-                    val responseModel = saveImageInFavouritesUseCase.execute(FavouriteModel(catId!!))
-
-                    responseModel?.let {
-                        _saveCat.postValue(it)
-                    }
+                    saveImageInFavouritesUseCase.execute(FavouriteModel(catId!!))
                 }
+            }
         } else {
-            _saveCat.value = ResponseModel(0, "Failed")
+            _cat.postValue(State.Error("Нет интернета"))
         }
     }
 

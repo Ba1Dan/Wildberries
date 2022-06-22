@@ -7,4 +7,5 @@
     <string name="favourite_icon">favourite icon</string>
     <string name="button_like">button like</string>
     <string name="button_unlike">button unlike</string>
+    <string name="no_network_connection">Нет соединения с Интернетом</string>
 </resources>

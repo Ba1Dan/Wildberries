@@ -76,7 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="@string/default_name"
+        android:text="@string/default_created_date"
         app:layout_constraintStart_toEndOf="@id/label_created_date"
         app:layout_constraintTop_toTopOf="@id/label_created_date" />
 

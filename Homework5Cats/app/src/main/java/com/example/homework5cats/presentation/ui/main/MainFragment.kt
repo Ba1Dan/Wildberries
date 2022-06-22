@@ -1,23 +1,35 @@
 package com.example.homework5cats.presentation.ui.main
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import com.example.homework5cats.core.App
 import com.example.homework5cats.data.model.Cat
 import com.example.homework5cats.databinding.FragmentMainBinding
-import com.example.homework5cats.di.GlobalDI
 import com.example.homework5cats.presentation.ui.base.BaseFragment
 import com.example.homework5cats.presentation.util.State
+import com.example.homework8cats.presentation.util.ViewModelFactory
+import javax.inject.Inject
 
 class MainFragment : BaseFragment<FragmentMainBinding>() {
 
     private lateinit var viewModel: MainViewModel
 
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (context.applicationContext as App).component.inject(this)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = GlobalDI.INSTANCE.mainViewModel
+        viewModel = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
     }
 
     override fun getBinding(
@@ -51,7 +63,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             }
 
             is State.Loading -> {
-//                binding.shimmerMessages.root.isVisible = true
             }
 
             is State.Error -> {

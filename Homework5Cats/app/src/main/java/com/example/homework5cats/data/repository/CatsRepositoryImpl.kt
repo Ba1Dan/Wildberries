@@ -4,8 +4,9 @@ import com.example.homework5cats.data.RemoteDatsSource
 import com.example.homework5cats.data.model.*
 import com.example.homework5cats.data.network.ApiService
 import com.example.homework5cats.domain.repository.CatsRepository
+import javax.inject.Inject
 
-class CatsRepositoryImpl(private val remoteDatsSource: RemoteDatsSource) : CatsRepository {
+class CatsRepositoryImpl @Inject constructor(private val remoteDatsSource: RemoteDatsSource) : CatsRepository {
 
     override suspend fun getCat(): ResultModel<List<Cat>> {
         return remoteDatsSource.getCat()
