@@ -6,11 +6,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.homework7hero.data.model.Hero
 import com.example.homework7hero.domain.repository.HeroesRepository
-import com.example.homework7hero.presentation.State
+import com.example.homework7hero.presentation.util.NetworkManager
+import com.example.homework7hero.presentation.util.State
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ListHeroesViewModel(private val heroesRepository: HeroesRepository) : ViewModel() {
+class ListHeroesViewModel @Inject constructor(
+    private val heroesRepository: HeroesRepository,
+    private val networkManager: NetworkManager
+) : ViewModel() {
 
     private val _heroes: MutableLiveData<State<List<Hero>>> = MutableLiveData()
     val heroes: LiveData<State<List<Hero>>> = _heroes
@@ -24,8 +29,10 @@ class ListHeroesViewModel(private val heroesRepository: HeroesRepository) : View
                 _heroes.postValue(State.Result(cache))
 
                 //Берем свежие данные с сервера
-                val data = heroesRepository.searchHeroes(query)
-                _heroes.postValue(State.Result(data))
+                if (networkManager.isConnected().value) {
+                    val data = heroesRepository.searchHeroes(query)
+                    _heroes.postValue(State.Result(data))
+                }
             }
         } catch (e: Exception) {
             _heroes.value = State.Error(e.message)

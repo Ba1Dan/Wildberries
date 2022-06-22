@@ -2,8 +2,9 @@ package com.example.homework7hero.data.db
 
 import android.content.Context
 import android.content.SharedPreferences
+import javax.inject.Inject
 
-class SharedPreferencesManager(private val context: Context) {
+class SharedPreferencesManager @Inject constructor(private val context: Context) {
 
     private val mSettings by lazy { context.getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)}
 

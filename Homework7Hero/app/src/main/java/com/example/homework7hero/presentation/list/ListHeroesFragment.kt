@@ -1,38 +1,47 @@
 package com.example.homework7hero.presentation.list
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.homework7hero.R
+import com.example.homework7hero.core.App
 import com.example.homework7hero.data.model.Hero
 import com.example.homework7hero.databinding.FragmentListHeroesBinding
-import com.example.homework7hero.di.GlobalDI
-import com.example.homework7hero.presentation.State
+import com.example.homework7hero.presentation.base.BaseFragment
+import com.example.homework7hero.presentation.util.State
 import com.example.homework7hero.presentation.detail.DetailHeroFragment
 import com.example.homework7hero.presentation.list.adapter.HeroesAdapter
 import com.example.homework7hero.presentation.list.adapter.OnHeroClickListener
+import com.example.homework7hero.presentation.util.ViewModelFactory
+import javax.inject.Inject
 
-class ListHeroesFragment : Fragment(), OnHeroClickListener {
-
-    private var _binding: FragmentListHeroesBinding? = null
-    private val binding get() = _binding!!
-
-    private val viewModel: ListHeroesViewModel = GlobalDI.INSTANCE.listHeroesViewModel
+class ListHeroesFragment : BaseFragment<FragmentListHeroesBinding>(), OnHeroClickListener {
 
     private lateinit var adapter: HeroesAdapter
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentListHeroesBinding.inflate(inflater, container, false)
+    private lateinit var viewModel: ListHeroesViewModel
 
-        return binding.root
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (context.applicationContext as App).component.inject(this)
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(this, viewModelFactory)[ListHeroesViewModel::class.java]
+    }
+    override fun getBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentListHeroesBinding = FragmentListHeroesBinding.inflate(inflater, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

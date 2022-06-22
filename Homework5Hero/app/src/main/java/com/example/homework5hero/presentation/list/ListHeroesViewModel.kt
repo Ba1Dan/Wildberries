@@ -1,31 +1,38 @@
 package com.example.homework5hero.presentation.list
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.homework5hero.data.model.Hero
 import com.example.homework5hero.domain.repository.HeroesRepository
-import com.example.homework5hero.domain.usecase.SearchHeroesUseCase
+import com.example.homework5hero.presentation.util.NetworkManager
+import com.example.homework5hero.presentation.util.State
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ListHeroesViewModel(private val searchHeroesUseCase: SearchHeroesUseCase) : ViewModel() {
+class ListHeroesViewModel @Inject constructor(
+    private val heroesRepository: HeroesRepository,
+    private val networkManager: NetworkManager
+) : ViewModel() {
 
-    private val _heroes: MutableLiveData<List<Hero>> = MutableLiveData()
-    val heroes: LiveData<List<Hero>> = _heroes
+    private val _heroes: MutableLiveData<State<List<Hero>>> = MutableLiveData()
+    val heroes: LiveData<State<List<Hero>>> = _heroes
 
     fun searchHeroes(query: String) {
-
+        _heroes.value = State.Loading
         try {
             viewModelScope.launch(Dispatchers.IO) {
-                val data = searchHeroesUseCase.execute(query)
-                Log.d("ListHeroesViewModel", "$data")
-                _heroes.postValue(data)
+                if (networkManager.isConnected().value) {
+                    val data = heroesRepository.searchHeroes(query)
+                    _heroes.postValue(State.Result(data))
+                } else {
+                    _heroes.postValue(State.Result(listOf()))
+                }
             }
         } catch (e: Exception) {
-            Log.d("ListHeroesViewModel", "An error has occurred")
+            _heroes.value = State.Error(e.message)
         }
     }
 }

@@ -1,6 +1,8 @@
 package com.example.homework7hero.data.db
 
-class LocalDataSource(private val sharedPreferencesManager: SharedPreferencesManager) {
+import javax.inject.Inject
+
+class LocalDataSource @Inject constructor(private val sharedPreferencesManager: SharedPreferencesManager) {
 
     fun getHeroes(): String {
         return sharedPreferencesManager.read()

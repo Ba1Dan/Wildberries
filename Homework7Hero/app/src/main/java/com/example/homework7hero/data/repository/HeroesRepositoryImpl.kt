@@ -7,9 +7,10 @@ import com.example.homework7hero.data.network.HeroesApi
 import com.example.homework7hero.domain.repository.HeroesRepository
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import javax.inject.Inject
 
 
-class HeroesRepositoryImpl(private val heroesApi: HeroesApi, private val localDataSource: LocalDataSource) : HeroesRepository {
+class HeroesRepositoryImpl @Inject constructor(private val heroesApi: HeroesApi, private val localDataSource: LocalDataSource) : HeroesRepository {
 
     override suspend fun searchHeroes(query: String): List<Hero> {
         val result: List<Hero> = heroesApi.searchHeroes()

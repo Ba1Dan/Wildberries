@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.RecyclerView
 import com.example.homework7hero.data.model.Hero
 import com.example.homework7hero.databinding.ItemHeroBinding
-import com.example.homework7hero.presentation.CircularTransformation
+import com.example.homework7hero.presentation.util.CircularTransformation
 import com.squareup.picasso.Picasso
 
 class HeroesAdapter(private val onHeroClickListener: OnHeroClickListener) : RecyclerView.Adapter<HeroesAdapter.HeroViewHolder>() {

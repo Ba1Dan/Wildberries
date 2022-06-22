@@ -1,4 +1,4 @@
-package com.example.homework7hero.presentation
+package com.example.homework7hero.presentation.util
 
 sealed class State<out T> {
 

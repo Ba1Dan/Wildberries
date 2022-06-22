@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit
 
 object RequestManager {
 
-    private const val BASE_URL = "https://superheroapi.com/api/"
+    private const val BASE_URL = "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/"
     const val ACCESS_TOKEN = "3202191630032155"
 
     private val retrofit = Retrofit.Builder()

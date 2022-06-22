@@ -32,8 +32,6 @@ class ListHeroesViewModel @Inject constructor(
                 if (networkManager.isConnected().value) {
                     val data = heroesRepository.searchHeroes(query)
                     _heroes.postValue(State.Result(data))
-                } else {
-                    _heroes.value = State.Error("Нет соединения с интернетом")
                 }
             }
         } catch (e: Exception) {

@@ -27,11 +27,12 @@
 
     <TextView
         android:id="@+id/tv_full_name"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:layout_width="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/label_full_name"
         app:layout_constraintStart_toEndOf="@id/label_full_name"
         app:layout_constraintTop_toTopOf="@id/label_full_name"
@@ -50,10 +51,11 @@
     <TextView
         android:id="@+id/tv_publisher"
         style="@style/text_style"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         app:layout_constraintBottom_toBottomOf="@id/label_publisher"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/label_publisher"
         app:layout_constraintTop_toTopOf="@id/label_publisher"
         tools:text="Бетмен" />
@@ -71,10 +73,11 @@
     <TextView
         android:id="@+id/tv_place_of_birth"
         style="@style/text_style"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         app:layout_constraintBottom_toBottomOf="@id/label_place_of_birth"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/label_place_of_birth"
         app:layout_constraintTop_toTopOf="@id/label_place_of_birth"
         tools:text="Бетмен" />
@@ -92,10 +95,11 @@
     <TextView
         android:id="@+id/tv_aliases"
         style="@style/text_style"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         app:layout_constraintBottom_toBottomOf="@id/label_aliases"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/label_aliases"
         app:layout_constraintTop_toTopOf="@id/label_aliases"
         tools:text="Бетмен" />

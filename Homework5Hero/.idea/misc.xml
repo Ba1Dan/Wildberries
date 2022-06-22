@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/daniy/StudioProjects/Wildberries/Homework5Hero/app/src/main/res/drawable/bg_round_red.xml" value="0.1975" />
         <entry key="..\:/Users/daniy/StudioProjects/Wildberries/Homework5Hero/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/daniy/StudioProjects/Wildberries/Homework5Hero/app/src/main/res/layout/fragment_detail_hero.xml" value="0.358695652173913" />
         <entry key="..\:/Users/daniy/StudioProjects/Wildberries/Homework5Hero/app/src/main/res/layout/fragment_list_heroes.xml" value="0.358695652173913" />
         <entry key="..\:/Users/daniy/StudioProjects/Wildberries/Homework5Hero/app/src/main/res/layout/item_hero.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/daniy/StudioProjects/Wildberries/Homework5Hero/app/src/main/res/layout/no_network_connection.xml" value="0.18958333333333333" />
       </map>
     </option>
   </component>
